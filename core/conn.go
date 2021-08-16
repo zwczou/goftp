@@ -73,6 +73,11 @@ func (conn *Conn) ServerOpts() *ServerOpts {
 	return conn.server.ServerOpts
 }
 
+// Driver returns Driver
+func (conn *Conn) Driver() Driver {
+	return conn.driver
+}
+
 func (conn *Conn) passiveListenIP() string {
 	var listenIP string
 	if len(conn.PublicIP()) > 0 {
