@@ -22,7 +22,7 @@ type Command interface {
 type commandMap map[string]Command
 
 var (
-	commands = commandMap{
+	Commands = commandMap{
 		"ADAT": commandAdat{},
 		"ALLO": commandAllo{},
 		"APPE": commandAppe{},
@@ -177,7 +177,7 @@ var (
 )
 
 func init() {
-	for k, v := range commands {
+	for k, v := range Commands {
 		if v.IsExtend() {
 			featCmds = featCmds + " " + k + "\n"
 		}

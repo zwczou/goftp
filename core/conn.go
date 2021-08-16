@@ -207,14 +207,14 @@ func (conn *Conn) receiveLine(line string) {
 
 	command, param := conn.parseLine(line)
 	conn.logger.PrintCommand(conn.sessionID, command, param)
-	cmdObj := commands[strings.ToUpper(command)]
+	cmdObj := Commands[strings.ToUpper(command)]
 	if cmdObj == nil {
 		conn.writeMessage(500, "Command not found")
 		return
 	}
 	if cmdObj.RequireParam() && param == "" {
 		conn.writeMessage(553, "action aborted, required param missing")
-	} else if conn.server.ServerOpts.ForceTLS && !conn.tls && !(cmdObj == commands["AUTH"] && param == "TLS") {
+	} else if conn.server.ServerOpts.ForceTLS && !conn.tls && !(cmdObj == Commands["AUTH"] && param == "TLS") {
 		conn.writeMessage(534, "Request denied for policy reasons. AUTH TLS required.")
 	} else if cmdObj.RequireAuth() && conn.user == "" {
 		conn.writeMessage(530, "not logged in")
