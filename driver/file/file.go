@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"goftp.io/server/core"
+	"github.com/zwczou/goftp/core"
 )
 
 // Driver implements Driver directly read local file system

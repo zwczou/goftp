@@ -1,4 +1,4 @@
-module goftp.io/server
+module github.com/zwczou/goftp
 
 go 1.12
 

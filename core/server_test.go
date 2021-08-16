@@ -14,8 +14,8 @@ import (
 
 	"github.com/jlaffaye/ftp"
 	"github.com/stretchr/testify/assert"
-	"goftp.io/server/core"
-	"goftp.io/server/driver/file"
+	"github.com/zwczou/goftp/core"
+	"github.com/zwczou/goftp/driver/file"
 )
 
 func runServer(t *testing.T, opt *core.ServerOpts, notifiers []core.Notifier, execute func()) {
